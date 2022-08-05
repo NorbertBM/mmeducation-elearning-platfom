@@ -357,13 +357,13 @@ form .btn {
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
 }
 .testimonials-container .card-img.img-1 {
-  background: url("../../src/img/testimonial-1.jpg") no-repeat center center/cover;
+  background: url("./img/testimonial-1.jpg") no-repeat center center/cover;
 }
 .testimonials-container .card-img.img-2 {
-  background: url("../../src/img/testimonial-2.jpg") no-repeat center top/cover;
+  background: url("./img/testimonial-2.jpg") no-repeat center top/cover;
 }
 .testimonials-container .card-img.img-3 {
-  background: url("../../src/img/testimonial-3.jpg") no-repeat center top/cover;
+  background: url("./img/testimonial-3.jpg") no-repeat center top/cover;
   background-size: 150%;
 }
 
