@@ -6,6 +6,14 @@ a {
   color: inherit;
 }
 
+.title {
+  font-size: 5rem;
+}
+
+.subtitle {
+  font-size: 3.5rem;
+}
+
 :root {
   --primary-color: #7633f9;
   --secondary-color: #ff9800;
@@ -23,15 +31,29 @@ a {
 }
 
 /* Navigation */
-.nav {
+.navbar {
   width: 100%;
 }
 
-.navbar-nav {
-  width: 200px;
-  font-weight: 600;
+.navbar-brand {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #fff;
+  text-decoration: none;
+  transition: var(--transition);
+}
+.navbar-brand .logo {
+  margin: 0.3rem;
+  background-color: #fff;
+  color: var(--primary-color);
+  padding: 0.6rem 0.3rem;
+  border-radius: 50%;
 }
 
+.navbar-nav {
+  width: 220px;
+  font-weight: 600;
+}
 .navbar-nav .nav-item {
   padding: 5px 10px;
   border-radius: 5px;
@@ -81,18 +103,43 @@ form .btn {
   outline: 1px solid #5308b6;
 }
 
+.footer {
+  height: 20vh;
+  padding: 4rem 0;
+}
+.footer .nav-link:hover {
+  text-decoration: underline;
+  margin-bottom: 0.5rem;
+}
+.footer-content {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+}
+
+@media screen and (max-width: 768px) {
+  .footer-logo {
+    display: none;
+  }
+  .footer-content {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
 .header {
   height: 80vh;
-  animation: fadeInHeader 1s ease-in-out;
+  -webkit-animation: fadeInHeader 1s ease-in-out;
+          animation: fadeInHeader 1s ease-in-out;
 }
 .header-content {
   max-width: 550px;
-  animation: left 1s ease-in-out;
+  -webkit-animation: left 1s ease-in-out;
+          animation: left 1s ease-in-out;
 }
 .header-img {
   max-width: 600px;
   min-width: 200px;
-  animation: right 1s ease-in-out;
+  -webkit-animation: right 1s ease-in-out;
+          animation: right 1s ease-in-out;
 }
 .header .btn {
   padding: 0.75rem 1.25rem;
@@ -100,6 +147,15 @@ form .btn {
 .header a.btn-primary {
   color: #fff;
   margin-right: 1.5rem;
+}
+
+@-webkit-keyframes fadeInHeader {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 @keyframes fadeInHeader {
@@ -110,9 +166,29 @@ form .btn {
     opacity: 1;
   }
 }
+@-webkit-keyframes left {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
 @keyframes left {
   0% {
     transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+@-webkit-keyframes right {
+  0% {
+    transform: translateX(100%);
     opacity: 0;
   }
   100% {
@@ -150,6 +226,7 @@ form .btn {
   margin-left: 2rem;
   list-style-type: disc;
   font-weight: 700;
+  color: var(--primary-color);
 }
 .categories-container .card-title {
   font-weight: bold;
@@ -213,8 +290,8 @@ form .btn {
 }
 .offers-container .card i, .testimonials-container .card i {
   font-size: 4rem;
-  background-color: var(--primary-color);
-  color: var(--secondary-color);
+  background-color: var(--secondary-color);
+  color: #fff;
   border-radius: 50%;
   padding: 1.75rem;
   margin: 2rem 0;
@@ -227,19 +304,51 @@ form .btn {
 }
 
 .testimonials-container {
-  justify-items: center;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-areas: "testimonial-1 ." ". testimonial-2" "testimonial-3 ." ". testimonial-4";
+  margin: 0 2rem;
 }
 .testimonials-container .card {
-  max-width: 400px;
+  max-width: 600px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
 }
 .testimonials-container .card:hover {
   transform: scale(1.05);
 }
+.testimonials-container .card:nth-child(1) {
+  grid-area: testimonial-1;
+}
+.testimonials-container .card:nth-child(2) {
+  grid-area: testimonial-2;
+}
+.testimonials-container .card:nth-child(3) {
+  grid-area: testimonial-3;
+}
+.testimonials-container .card:nth-child(4) {
+  grid-area: testimonial-4;
+}
+.testimonials-container .card i {
+  background-color: transparent;
+  color: inherit;
+  border-radius: 0;
+  padding: 0;
+  margin: 0;
+}
+.testimonials-container .card .fa-brands {
+  font-size: 1.5rem;
+  margin-right: 0.5rem;
+}
 .testimonials-container .card-header {
   display: grid;
   grid-template-columns: 1fr 3fr;
   align-items: center;
+}
+.testimonials-container .card-title {
+  font-size: 1.5rem;
+  margin-bottom: 0.2rem;
+}
+.testimonials-container .card-text {
+  margin-bottom: 0.2rem;
 }
 .testimonials-container .card-img {
   border-radius: 50%;
@@ -258,50 +367,11 @@ form .btn {
   background-size: 150%;
 }
 
-.footer {
-  height: 30vh;
-  padding: 2rem 0;
-}
-.footer .footer-content {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 50px;
-}
-.footer .footer-content .footer-col-1 h4 {
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
-}
-.footer .footer-content .footer-col-1 p {
-  font-weight: 300;
-}
-.footer .footer-content .footer-col-2 h4 {
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
-}
-.footer .footer-content .footer-col-2 ul {
-  list-style: none;
-}
-.footer .footer-content .footer-col-2 ul li {
-  margin-bottom: 0.5rem;
-}
-.footer .footer-content .footer-col-2 ul li a {
-  color: var(--secondary-color);
-  font-weight: 300;
-}
-.footer .footer-content .footer-col-3 h4 {
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
-}
-.footer .footer-content .footer-col-3 p {
-  font-weight: 300;
-}
-
 html {
   scroll-behavior: smooth;
 }
 
 #welcome .header {
-  margin-top: 10vh;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -322,13 +392,26 @@ html {
   background-color: var(--primary-color);
   color: #fff;
   transition: var(--transition);
-  animation: pulse 3s ease-in-out infinite;
+  -webkit-animation: pulse 3s ease-in-out infinite;
+          animation: pulse 3s ease-in-out infinite;
 }
 #welcome .header i:hover {
   background-color: #fff;
   color: var(--primary-color);
   transition: var(--transition);
-  animation: none;
+  -webkit-animation: none;
+          animation: none;
+}
+@-webkit-keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 @keyframes pulse {
   0% {
@@ -354,10 +437,10 @@ p {
     transition: var(--transition);
   }
   .title {
-    font-size: 3rem;
+    font-size: 4rem;
   }
   .subtitle {
-    font-size: 2rem;
+    font-size: 3rem;
   }
   .header {
     padding: 0 1rem;
@@ -368,6 +451,18 @@ p {
   }
 }
 @media screen and (max-width: 782px) {
+  .title {
+    font-size: 3.5rem;
+  }
+  .subtitle {
+    font-size: 2.5rem;
+  }
+  .navbar-brand {
+    font-size: 1rem;
+  }
+  .btn {
+    transform: scale(0.9);
+  }
   .header {
     flex-direction: column;
     text-align: center;
@@ -382,6 +477,7 @@ p {
   .offers-container,
 .testimonials-container {
     grid-template-columns: 1fr;
+    grid-template-areas: "testimonial-1" "testimonial-2" "testimonial-3" "testimonial-4";
   }
   .offers-container .card i,
 .testimonials-container .card i {
