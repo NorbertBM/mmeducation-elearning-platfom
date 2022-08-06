@@ -366,7 +366,10 @@ form .btn {
   background: url("./img/testimonial-3.jpg") no-repeat center top/cover;
   background-size: 150%;
 }
-
+.testimonials-container .card-img.img-4 {
+  background: url("./img/testimonial-4.jpg") no-repeat center top/cover;
+  background-size: 120%;
+}
 html {
   scroll-behavior: smooth;
 }
